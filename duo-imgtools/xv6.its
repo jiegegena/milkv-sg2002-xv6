@@ -1,0 +1,38 @@
+/dts-v1/;
+/ {
+	description = "Milk-V Duo SD";
+	images {
+		kernel-1 {
+			data = /incbin/("./kernel.bin");
+			type = "kernel";
+			arch = "riscv";
+			os = "linux";
+			compression = "none";
+			load = <0x0 0x80200000>;
+			entry = <0x0 0x80200000>;
+			hash-2 {
+				algo = "crc32";
+			};
+		};
+
+		/*FDT*/
+    
+		fdt-sg2002_milkv_duo256m_musl_riscv64_sd {
+            description = "cvitek device tree - sg2002_milkv_duo256m_musl_riscv64_sd";
+            data = /incbin/("./sg2002_milkv_duo256m_musl_riscv64_sd.dtb");
+            type = "flat_dt";
+            arch = "riscv";
+            compression = "none";
+            hash-1 {
+                algo = "sha256";
+            };
+        };
+
+	};
+	configurations {
+		config-sg2002_milkv_duo256m_musl_riscv64_sd {
+			kernel = "kernel-1";
+			fdt = "fdt-sg2002_milkv_duo256m_musl_riscv64_sd";
+		};
+	};
+};
