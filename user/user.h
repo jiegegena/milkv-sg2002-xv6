@@ -45,3 +45,5 @@ void *memcpy(void *, const void *, uint);
 
 // strtoul.c
 unsigned long strtoul(const char *nptr, char **endptr, int base);
+
+int trace(int);

@@ -148,6 +148,8 @@ UPROGS=\
 	$U/_wc\
 	$U/_zombie\
 	$U/_blink\
+	$U/_sleep\
+	$U/_trace\
 	$U/_pwm\
 	$U/_adc\
 	$U/_i2c\
