@@ -212,3 +212,8 @@ void            spiinit(void);
 
 // number of elements in fixed-size array
 #define NELEM(x) (sizeof(x)/sizeof((x)[0]))
+
+/* Page Tables
+ * add function hujie 
+ */
+void            vmprint(pagetable_t); 

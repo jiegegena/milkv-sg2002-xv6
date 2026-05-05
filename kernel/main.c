@@ -16,6 +16,8 @@ main()
   if(main_hartid == ~0UL){
     memset(_bss_start, 0, _bss_end - _bss_start);
     main_hartid = cpuid();
+      uart_base = UART0;
+    __sync_synchronize();
     consoleinit();
     printfinit();
     printf("\n");
@@ -25,8 +27,6 @@ main()
     kinit();         // physical page allocator
     kvminit();       // create kernel page table
     kvminithart();   // turn on paging
-    uart_base = UART0;
-    __sync_synchronize();
     procinit();      // process table
     trapinit();      // trap vectors
     trapinithart();  // install kernel trap vector
